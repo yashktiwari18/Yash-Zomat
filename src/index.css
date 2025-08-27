@@ -1,0 +1,213 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FoodieHub Design System - All colors, gradients, fonts, etc defined here */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    /* FoodieHub Brand Variables */
+    --foodie-orange: 14 100% 66%; /* #FF6B47 */
+    --foodie-orange-light: 14 100% 75%; /* Lighter orange */
+    --foodie-orange-dark: 14 100% 55%; /* Darker orange */
+    --foodie-green: 158 64% 52%; /* #10B981 */
+    --foodie-green-light: 158 64% 65%; /* Lighter green */
+    --foodie-cream: 33 100% 96%; /* #FEF7ED */
+    --foodie-cream-dark: 33 100% 90%; /* Darker cream */
+    --foodie-gray: 215 25% 27%; /* #374151 */
+    --foodie-gray-light: 215 20% 65%; /* Lighter gray */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-foodie-gray;
+  }
+}
+
+@layer components {
+  /* Button Variants */
+  .btn-foodie-primary {
+    @apply bg-hero-gradient text-white px-6 py-3 rounded-2xl font-semibold 
+           shadow-button hover:shadow-lg transform hover:scale-105 
+           transition-all duration-200 ease-out;
+  }
+
+  .btn-foodie-secondary {
+    @apply bg-white text-foodie-orange border-2 border-foodie-orange 
+           px-6 py-3 rounded-2xl font-semibold hover:bg-foodie-orange 
+           hover:text-white transition-all duration-200;
+  }
+
+  .btn-foodie-ghost {
+    @apply text-foodie-gray hover:text-foodie-orange hover:bg-foodie-cream 
+           px-4 py-2 rounded-lg transition-all duration-200;
+  }
+
+  /* Card Variants */
+  .card-glass {
+    @apply bg-white/70 backdrop-blur-glass border border-white/20 
+           shadow-glass rounded-2xl;
+  }
+
+  .card-foodie {
+    @apply bg-white shadow-card rounded-2xl border border-gray-100 
+           hover:shadow-lg transform hover:scale-[1.02] 
+           transition-all duration-300;
+  }
+
+  .card-featured {
+    @apply bg-card-gradient shadow-soft rounded-3xl border border-foodie-cream-dark
+           hover:shadow-card transform hover:scale-[1.02] 
+           transition-all duration-300;
+  }
+
+  /* Input Variants */
+  .input-foodie {
+    @apply bg-white border border-gray-200 rounded-xl px-4 py-3 
+           focus:border-foodie-orange focus:ring-2 focus:ring-foodie-orange/20 
+           transition-all duration-200;
+  }
+
+  /* Text Variants */
+  .text-hero {
+    @apply text-4xl md:text-6xl font-bold text-white;
+  }
+
+  .text-section-title {
+    @apply text-2xl md:text-3xl font-bold text-foodie-gray mb-6;
+  }
+
+  .text-card-title {
+    @apply text-lg font-semibold text-foodie-gray;
+  }
+
+  .text-card-subtitle {
+    @apply text-sm text-foodie-gray-light;
+  }
+
+  .text-price {
+    @apply text-lg font-bold text-foodie-green;
+  }
+
+  /* Layout Components */
+  .container-foodie {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 md:py-16;
+  }
+
+  /* Animation Utilities */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8;
+  }
+
+  .animate-on-scroll.in-view {
+    @apply opacity-100 translate-y-0 transition-all duration-700 ease-out;
+  }
+
+  /* Custom Scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Rating Stars */
+  .star-rating {
+    @apply flex items-center gap-1;
+  }
+
+  .star-filled {
+    @apply text-yellow-400;
+  }
+
+  .star-empty {
+    @apply text-gray-300;
+  }
+}
+
+@layer utilities {
+  .bg-hero-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foodie-orange to-foodie-orange-dark;
+  }
+
+  .border-gradient {
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, hsl(var(--foodie-orange)), hsl(var(--foodie-green))) border-box;
+    border: 2px solid transparent;
+  }
+}
